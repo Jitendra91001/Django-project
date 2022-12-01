@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<style>
+
+</style>
+<div class="container-fluid">
+    <h1 class="text-center">My <b style="color:red;">Profile</b></h1>
+    <div class="col-sm-12">
+        <table class="table table-stripted">
+            <tr align="center" >
+               <th>Name</th>
+                <th>Profile Image</th>
+               <th width="150px">Date Of Birth</th>
+               <th>Mobile No</th>
+               <th>Email</th>
+               <th>Address</th>
+               <th>Edit</th>
+               <th>Delet</th>
+            </tr>
+            {% if jitendra %}
+            {% for x in jitendra %}
+             <tr>
+               <td>{{x.0}}</td>
+               <td><img src="/{{x.6}}" class="img-thumbnail" style="height:50px; width:70px;"></td>
+               <td>{{x.1}}</td>
+               <td>{{x.2}}</td>
+               <td>{{x.3}}</td>
+               <td>{{x.5}}</td>
+               <td><div class="btn btn-success" style="padding:5px;">Edit</div></td>
+                 <td><div class="btn btn-danger" style="padding:5px;">Delete</div></td>
+             </tr>
+            {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

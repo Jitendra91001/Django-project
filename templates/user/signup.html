@@ -1,0 +1,59 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<style>
+    .signup
+    {
+    min-height:500px;
+    font-size:14px;
+    }
+    .form-control
+    {
+    margin-bottom:8px;
+    font-size:14px;
+    }
+    .txta
+    {
+    min-height:90px;
+    }
+
+
+
+</style>
+<div class="row py-4">
+    <div class="h2 text-center"><b>SIGN <span class="text-danger">UP <i class="fa fa-user-plus"></i></span></b></div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 signup bg-light p-3 border">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}<!---cross site refered-->
+                    {% if S %}
+                    <div class="alert alert-success">
+                        Registered Successfully...
+                    </div>
+                    {% endif %}
+            <div class="row">
+                <div class="col-sm-12">
+                    Name*<input type="text" name="name" required class="form-control" placeholder="Enter Your Name"/>
+                    Date Of Birth*<input type="date" name="dob" required class="form-control" placeholder="DD/MM/YYYY"/>
+                    <!---Gender* &nbsp<input type="radio" name="gender" value="male"/> Male
+                            <input type="radio" name="gender" value="female"> Female<br/>-->
+                    Mobile No.*<input type="number" name="mobile" required class="form-control"
+                                      placeholder="Enter Mobile No."/>
+                    Email*<input type="email" name="email" required class="form-control"
+                                 placeholder="Enter Your Email"/>
+                    Possword*<input type="password" name="passwd" required class="form-control"
+                                    placeholder="Create Possword"/>
+                    Upload Photo*<br/><input type="file" id="myfile" name="myfile" class="form-control">
+                    Address*<textarea class="form-control txta" name="address" style="resize:none" required
+                                      placeholder="Enter your Address..."></textarea>
+
+                    <input type="submit" value="Sign Up" class="btn btn-warning form-control"/>
+                </div>
+            </div>
+        </form>
+        <div class="text-center fs-6">existing costumar <a href="/user/signin"><b>Sign In</b></a></div>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+{% endblock %}

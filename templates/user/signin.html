@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <style>
+    .signin
+    {
+    min-height:200px;
+    font-size:14px;
+    padding-bottom:20px;
+    }
+    .form-control
+    {
+    margin-bottom:8px;
+    font-size:14px;
+    }
+</style>
+<body>
+<div class="row py-4">
+    <div class="h2 text-center"><b>SIGN <span class="text-danger">IN <i class="fa fa-key fa-spin"></i></span></b></div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 signin bg-light p-3 border">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}<!---cross site refered-->
+                    {% if S %}
+
+                    {% endif %}
+            <div class="row">
+                <div class="col-sm-12">
+
+                    Username*<input type="email" name="uname" required class="form-control"
+                                 placeholder="Enter Email Id"/>
+                    Possword*<input type="password" name="passwd" required class="form-control"
+                                    placeholder="Enter Possword"/>
+                    <input type="submit" value="Login" class="btn btn-warning form-control"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+</body>
+</html>
+{% endblock %}
